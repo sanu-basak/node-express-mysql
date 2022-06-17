@@ -12,15 +12,15 @@ module.exports = (app) => {
         next();
     });
 
-    app.get("api/test/all",controller.allAccess);
-    app.get("api/test/user",[
+    app.get("/api/test/all",controller.allAccess);
+    app.get("/api/test/user",[
         authJwt.verifyToken
     ],controller.userDashboard);
-    app.get("api/test/mod",[
+    app.get("/api/test/mod",[
         authJwt.verifyToken,
         authJwt.isModerator
     ],controller.moderatorDashbaord);
-    app.get("api/test/admin",[
+    app.get("/api/test/admin",[
         authJwt.verifyToken,
         authJwt.isAdmin
     ],controller.adminDashboard);
